@@ -1,1 +1,12 @@
+{
+  "version": 1,
+  "updatedAt": "2026-02-22",
+  "situations": [
+    {
+      "id": "at_the_table",
+      "title": "At the table (pass me…)",
+      "jsonUrl": "https://raw.githubusercontent.com/noeliaprojects/english-primary-app/main/content_v1/at_the_table.json"
+    }
+  ]
+}
 
