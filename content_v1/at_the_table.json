@@ -1,1 +1,208 @@
+{
+  "id": "at_the_table",
+  "title": "At the table (Pass me…)",
+  "theme": {
+    "primaryColor": "#FFB703",
+    "icon": "🍽️"
+  },
+  "roles": [
+    {
+      "id": "expert",
+      "name": "Parent"
+    },
+    {
+      "id": "student",
+      "name": "Child"
+    }
+  ],
+  "variables": {
+    "items": ["water", "bread", "salt", "pepper", "a napkin", "a spoon", "a fork", "a knife"],
+    "foods": ["pasta", "rice", "salad", "soup", "chicken", "pizza"],
+    "desserts": ["ice cream", "fruit", "cake", "yogurt"]
+  },
+  "stages": {
+    "scaffolding": {
+      "expert": {
+        "mission": "You are the parent. Ask politely and help the child use good table manners.",
+        "usefulPhrases": [
+          "Hello! Are you ready to eat?",
+          "Can you pass me the {item}, please?",
+          "Here you are.",
+          "Thank you.",
+          "You’re welcome.",
+          "Can I have some {item}, please?",
+          "Don’t forget to say “please” and “thank you”.",
+          "Would you like some {food}?"
+        ],
+        "keyWords": [
+          "please",
+          "thank you",
+          "you're welcome",
+          "pass",
+          "here you are",
+          "napkin",
+          "fork",
+          "knife"
+        ]
+      },
+      "student": {
+        "mission": "You are the child. Ask and respond politely at the table.",
+        "usefulPhrases": [
+          "Hello!",
+          "Can you pass me the {item}, please?",
+          "Here you are.",
+          "Thank you.",
+          "You’re welcome.",
+          "Yes, please.",
+          "No, thank you.",
+          "Could I have some water, please?"
+        ],
+        "keyWords": [
+          "please",
+          "thank you",
+          "you're welcome",
+          "pass",
+          "water",
+          "bread",
+          "napkin",
+          "fork"
+        ]
+      }
+    },
+    "listenRepeat": {
+      "sequence": [
+        {
+          "roleId": "expert",
+          "text": "Hello! Are you ready to eat?"
+        },
+        {
+          "roleId": "expert",
+          "text": "Can you pass me the {item}, please?"
+        },
+        {
+          "roleId": "student",
+          "text": "Hello!"
+        },
+        {
+          "roleId": "student",
+          "text": "Here you are."
+        },
+        {
+          "roleId": "student",
+          "text": "Thank you."
+        },
+        {
+          "roleId": "student",
+          "text": "You’re welcome."
+        }
+      ]
+    },
+    "ordering": {
+      "instructions": "Put the dialogue in the correct order.",
+      "dialogueCorrectOrder": [
+        {
+          "roleId": "expert",
+          "text": "Hello! Are you ready to eat?"
+        },
+        {
+          "roleId": "student",
+          "text": "Yes, I am."
+        },
+        {
+          "roleId": "expert",
+          "text": "Can you pass me the {item}, please?"
+        },
+        {
+          "roleId": "student",
+          "text": "Here you are."
+        },
+        {
+          "roleId": "expert",
+          "text": "Thank you."
+        },
+        {
+          "roleId": "student",
+          "text": "You’re welcome."
+        }
+      ],
+      "listenFullDialogue": true
+    },
+    "rolePlay": {
+      "durationSeconds": 120,
+      "silenceRestartSeconds": 15,
+      "aiAlwaysStarts": true,
+      "openingLine": "Hello!",
+      "guidedScript": [
+        {
+          "stepId": "greet",
+          "aiRoleId": "expert",
+          "aiText": "Hello! Are you ready to eat?",
+          "expectedStudentRoleId": "student",
+          "hintOptions": ["Hello!", "Yes, I am.", "Yes, please."]
+        },
+        {
+          "stepId": "ask_item",
+          "aiRoleId": "expert",
+          "aiText": "Can you pass me the {item}, please?",
+          "expectedStudentRoleId": "student",
+          "hintOptions": ["Here you are.", "Sure. Here you are.", "One moment. Here you are."]
+        },
+        {
+          "stepId": "thanks",
+          "aiRoleId": "expert",
+          "aiText": "Thank you.",
+          "expectedStudentRoleId": "student",
+          "hintOptions": ["You’re welcome.", "No problem.", "You’re welcome!"]
+        },
+        {
+          "stepId": "student_asks",
+          "aiRoleId": "expert",
+          "aiText": "Would you like some {food}?",
+          "expectedStudentRoleId": "student",
+          "hintOptions": ["Yes, please.", "No, thank you.", "Yes, please. Thank you."]
+        },
+        {
+          "stepId": "closing",
+          "aiRoleId": "expert",
+          "aiText": "Great! Don’t forget to say “please” and “thank you”. Goodbye!",
+          "expectedStudentRoleId": "student",
+          "hintOptions": ["Goodbye!", "Thank you. Goodbye!", "Bye!"]
+        }
+      ],
+      "variableBindings": {
+        "item": {
+          "source": "items",
+          "pick": "random"
+        },
+        "food": {
+          "source": "foods",
+          "pick": "random"
+        }
+      }
+    },
+    "writing": {
+      "taskId": "email_reply_table_manners",
+      "inputTitle": "You received a message",
+      "inputText": "Hi! Tomorrow we will have lunch at school. Please remember good table manners. Write back and say what you will do at the table. Include 3 rules (for example: say please, use a napkin, don’t talk with food in your mouth).",
+      "exampleTitle": "Example (do not copy)",
+      "exampleText": "Hi! Thanks for your message. Tomorrow I will use good table manners. I will say please and thank you. I will use a napkin and sit nicely. I will not talk with food in my mouth. See you tomorrow!",
+      "planningQuestions": [
+        "Who are you writing to?",
+        "Why are you writing?",
+        "Write 3 table rules you will follow.",
+        "How will you end your message?"
+      ],
+      "wordLimit": 150,
+      "phraseHelp": [
+        "Thanks for your message.",
+        "I will use good table manners.",
+        "I will say please and thank you.",
+        "I will use a napkin.",
+        "I will not talk with food in my mouth.",
+        "See you tomorrow!",
+        "Best wishes,"
+      ]
+    }
+  }
+}
 
